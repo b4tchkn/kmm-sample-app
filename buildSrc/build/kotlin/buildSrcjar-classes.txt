@@ -1,1 +1,0 @@
-/Users/batch/AndroidStudioProjects/kmm_sample_app/buildSrc/build/classes/kotlin/main/dependencies/Dep$AndroidX.class:/Users/batch/AndroidStudioProjects/kmm_sample_app/buildSrc/build/classes/kotlin/main/dependencies/Dep.class
