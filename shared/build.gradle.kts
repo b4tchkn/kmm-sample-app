@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import dependencies.Dep
 
 plugins {
     kotlin("multiplatform")
@@ -15,7 +16,15 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(Dep.Kotlin.coroutines)
+                implementation(Dep.Kotlin.serialization)
+                implementation(Dep.Ktor.client)
+                implementation(Dep.Ktor.serialization)
+                implementation(Dep.SqlDelight.runtime)
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -24,16 +33,23 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation(Dep.AndroidX.design)
+                implementation(Dep.Ktor.clientAndroid)
+                implementation(Dep.SqlDelight.androidDriver)
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation(Dep.Test.junit)
             }
         }
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                implementation(Dep.Ktor.clientIos)
+                implementation(Dep.SqlDelight.nativeDriver)
+            }
+        }
         val iosTest by getting
     }
 }
