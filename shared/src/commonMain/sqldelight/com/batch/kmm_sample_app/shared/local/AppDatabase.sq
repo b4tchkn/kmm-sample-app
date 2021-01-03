@@ -1,0 +1,11 @@
+CREATE TABLE Launch (
+    flightNumber INTEGER NOT NULL,
+    missionName TEXT NOT NULL,
+    launchYear INTEGER AS Int NOT NULL DEFAULT 0,
+    rocketId TEXT NOT NULL,
+    details TEXT,
+    launchSuccess INTEGER AS Boolean DEFAULT NULL,
+    launchDateUTC TEXT NOT NULL,
+    missionPatchUrl TEXT,
+    articleUrl TEXT
+);

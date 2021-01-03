@@ -3,7 +3,9 @@ import dependencies.Dep
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
     id("com.android.library")
+    id("com.squareup.sqldelight")
 }
 
 kotlin {
@@ -44,6 +46,22 @@ kotlin {
                 implementation(Dep.Test.junit)
             }
         }
+
+        val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+            if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+                ::iosArm64
+            else
+                ::iosX64
+
+        iOSTarget("ios") {
+            binaries {
+                framework {
+                    baseName = "shared"
+                }
+            }
+        }
+
+
         val iosMain by getting {
             dependencies {
                 implementation(Dep.Ktor.clientIos)
@@ -60,6 +78,13 @@ android {
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(30)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.batch.kmm_sample_app.shared.local"
+        sourceFolders = listOf("sqldelight")
     }
 }
 
