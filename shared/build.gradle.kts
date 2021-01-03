@@ -25,6 +25,7 @@ kotlin {
                 implementation(Dep.Ktor.client)
                 implementation(Dep.Ktor.serialization)
                 implementation(Dep.SqlDelight.runtime)
+                implementation(Dep.SqlDelight.coroutinesExtensions)
             }
         }
         val commonTest by getting {

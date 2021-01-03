@@ -9,3 +9,6 @@ CREATE TABLE Launch (
     missionPatchUrl TEXT,
     articleUrl TEXT
 );
+
+selectAllLaunches:
+SELECT * FROM Launch;

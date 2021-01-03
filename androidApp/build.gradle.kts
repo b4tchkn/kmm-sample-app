@@ -10,6 +10,8 @@ dependencies {
     implementation(Dep.AndroidX.design)
     implementation(Dep.AndroidX.appCompat)
     implementation(Dep.AndroidX.constraint)
+    implementation(Dep.AndroidX.viewModelKtx)
+    implementation(Dep.Kotlin.coroutines)
 }
 
 android {
