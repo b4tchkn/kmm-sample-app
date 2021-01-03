@@ -1,4 +1,4 @@
-package com.batch.kmm_sample_app.shared.local
+package com.batch.kmm_sample_app.shared.data.local
 
 import android.content.Context
 import com.squareup.sqldelight.android.AndroidSqliteDriver

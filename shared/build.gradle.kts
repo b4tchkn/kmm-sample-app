@@ -83,7 +83,7 @@ android {
 
 sqldelight {
     database("AppDatabase") {
-        packageName = "com.batch.kmm_sample_app.shared.local"
+        packageName = "com.batch.kmm_sample_app.shared.data.local"
         sourceFolders = listOf("sqldelight")
     }
 }
