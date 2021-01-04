@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 class MainViewModel(private val repository: TestRepository) : ViewModel() {
 
-    private val _launches = MutableStateFlow<List<Launch>?>(null)
-    val launches: StateFlow<List<Launch>?>
+    private val _launches = MutableStateFlow<List<Launch>>(listOf())
+    val launches: StateFlow<List<Launch>>
         get() = _launches
     private val _isLoading = MutableSharedFlow<Boolean>()
     val isLoading: SharedFlow<Boolean>
@@ -25,8 +25,8 @@ class MainViewModel(private val repository: TestRepository) : ViewModel() {
             kotlin.runCatching {
                 repository.getAllLaunches()
             }.onSuccess {
-                it.collect {
-                    _launches.value = it
+                it.collect { launches ->
+                    _launches.value = launches
                 }
             }.onFailure {
                 Log.d("myapperror", it.toString())
