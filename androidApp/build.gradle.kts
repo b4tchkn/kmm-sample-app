@@ -11,6 +11,7 @@ dependencies {
     implementation(Dep.AndroidX.appCompat)
     implementation(Dep.AndroidX.constraint)
     implementation(Dep.AndroidX.viewModelKtx)
+    implementation(Dep.AndroidX.activityKtx)
     implementation(Dep.Kotlin.coroutines)
 }
 
@@ -28,4 +29,8 @@ android {
             isMinifyEnabled = false
         }
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures.viewBinding = true
 }

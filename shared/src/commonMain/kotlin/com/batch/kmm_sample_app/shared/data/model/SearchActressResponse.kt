@@ -23,16 +23,6 @@ data class SearchActressResponse(
             val affiliateId: String,
             @SerialName("keyword")
             val keyword: String,
-            @SerialName("bust")
-            val bust: String,
-            @SerialName("waist")
-            val waist: String,
-            @SerialName("hits")
-            val hits: String,
-            @SerialName("sort")
-            val sort: String,
-            @SerialName("output")
-            val output: String
         )
     }
 

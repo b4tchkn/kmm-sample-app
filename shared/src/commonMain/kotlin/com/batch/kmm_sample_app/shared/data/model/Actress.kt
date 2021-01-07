@@ -12,27 +12,27 @@ data class Actress(
     @SerialName("ruby")
     val ruby: String,
     @SerialName("bust")
-    val bust: String,
+    val bust: String?,
     @SerialName("cup")
-    val cup: String,
+    var cup: String? = "",
     @SerialName("waist")
-    val waist: String,
+    val waist: String?,
     @SerialName("hip")
-    val hip: String,
+    val hip: String?,
     @SerialName("height")
-    val height: String,
+    val height: String?,
     @SerialName("birthday")
-    val birthday: String,
+    val birthday: String?,
     @SerialName("blood_type")
-    val bloodType: String,
+    val bloodType: String?,
     @SerialName("hobby")
-    val hobby: String,
-    @SerialName("prefecture")
-    val prefecture: String,
+    val hobby: String?,
+    @SerialName("prefectures")
+    val prefectures: String?,
     @SerialName("imageURL")
-    val imageUrl: ImageUrl,
+    var imageUrl: ImageUrl? = ImageUrl(small = "", large = ""),
     @SerialName("listURL")
-    val listURL: ListUrl
+    val listURL: ListUrl?
 
 ) {
     @Serializable
@@ -45,12 +45,10 @@ data class Actress(
 
     @Serializable
     data class ListUrl(
-        @SerialName("digitral")
+        @SerialName("digital")
         val digital: String,
         @SerialName("monthly")
         val monthly: String,
-        @SerialName("ppm")
-        val ppm: String,
         @SerialName("mono")
         val mono: String,
         @SerialName("rental")

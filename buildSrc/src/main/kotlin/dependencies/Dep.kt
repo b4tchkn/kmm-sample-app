@@ -7,6 +7,7 @@ object Dep {
         const val design = "com.google.android.material:material:1.2.1"
         const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+        const val activityKtx = "androidx.activity:activity-ktx:1.1.0"
     }
 
     object Kotlin {
