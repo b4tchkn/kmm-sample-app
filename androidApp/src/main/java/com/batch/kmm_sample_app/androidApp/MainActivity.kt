@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         binding.mainToolbar.inflateMenu(R.menu.search)
         val searchView =
             binding.mainToolbar.menu.findItem(R.id.menu_search).actionView as SearchView
+        searchView.setQuery("上原", false)
+        viewModel.searchActress("上原")
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(p0: String?): Boolean {
