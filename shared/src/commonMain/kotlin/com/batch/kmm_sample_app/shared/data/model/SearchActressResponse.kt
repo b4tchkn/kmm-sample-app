@@ -37,6 +37,6 @@ data class SearchActressResponse(
         @SerialName("first_position")
         val firstPosition: Int,
         @SerialName("actress")
-        val actress: List<Actress>
+        var actress: List<Actress> = emptyList()
     )
 }

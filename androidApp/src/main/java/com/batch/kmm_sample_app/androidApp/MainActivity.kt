@@ -1,11 +1,12 @@
 package com.batch.kmm_sample_app.androidApp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.kmm_sample_app.androidApp.databinding.ActivityMainBinding
 import com.batch.kmm_sample_app.shared.data.local.DatabaseDriverFactory
 import com.batch.kmm_sample_app.shared.data.repository.TestRepositoryImpl
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         MainViewModelFactory(testRepository)
     }
     private lateinit var binding: ActivityMainBinding
+    private val actressesRecyclerViewAdapter = ActressesRecyclerViewAdapter(listOf())
 
     @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +39,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(p0: String?): Boolean {
-                Log.d("activityMain", "Change${p0}")
                 return true
             }
 
@@ -48,9 +49,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 return true
             }
         })
+        binding.mainRecyclerView.adapter = actressesRecyclerViewAdapter
+        binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
+
         lifecycleScope.launchWhenStarted {
             viewModel.actresses.collect {
-                binding.textView.text = it.toString()
+                actressesRecyclerViewAdapter.actresses = it
+                actressesRecyclerViewAdapter.notifyDataSetChanged()
+            }
+        }
+        lifecycleScope.launchWhenStarted {
+            viewModel.isLoading.collect {
+                binding.mainProgressBar.isVisible = it
             }
         }
     }

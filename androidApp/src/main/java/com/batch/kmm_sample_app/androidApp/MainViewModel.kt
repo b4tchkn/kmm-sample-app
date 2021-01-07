@@ -16,8 +16,8 @@ class MainViewModel(private val repository: TestRepository) : ViewModel() {
     private val _launches = MutableStateFlow<List<Launch>>(listOf())
     val launches: StateFlow<List<Launch>>
         get() = _launches
-    private val _isLoading = MutableSharedFlow<Boolean>()
-    val isLoading: SharedFlow<Boolean>
+    private val _isLoading = MutableStateFlow<Boolean>(false)
+    val isLoading: StateFlow<Boolean>
         get() = _isLoading
     private val _actresses = MutableStateFlow<List<Actress>>(listOf())
     val actresses: StateFlow<List<Actress>>

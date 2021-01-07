@@ -11,7 +11,10 @@ import kotlinx.serialization.json.Json
 class ActressDataSourceImpl : ActressDataSource {
     private val dmmApiClient = HttpClient {
         install(JsonFeature) {
-            val json = Json { ignoreUnknownKeys = true }
+            val json = Json {
+                ignoreUnknownKeys = true
+                isLenient = true
+            }
             serializer = KotlinxSerializer(json)
         }
     }
