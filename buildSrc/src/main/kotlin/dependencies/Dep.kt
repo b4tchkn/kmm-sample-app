@@ -30,6 +30,11 @@ object Dep {
         const val coroutinesExtensions = "com.squareup.sqldelight:coroutines-extensions:1.4.4"
     }
 
+    object Coil {
+        const val coil = "io.coil-kt:coil:1.1.0"
+        const val base = "io.coil-kt:coil-base:1.1.0"
+    }
+
     object Test {
         const val junit = "junit:junit:4.13.1"
 

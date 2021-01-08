@@ -30,7 +30,7 @@ data class Actress(
     @SerialName("prefectures")
     val prefectures: String?,
     @SerialName("imageURL")
-    var imageUrl: ImageUrl? = ImageUrl(small = "", large = ""),
+    var imageUrl: ImageUrl? = null,
     @SerialName("listURL")
     val listURL: ListUrl?
 

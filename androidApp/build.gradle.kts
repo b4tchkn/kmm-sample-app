@@ -13,6 +13,8 @@ dependencies {
     implementation(Dep.AndroidX.viewModelKtx)
     implementation(Dep.AndroidX.activityKtx)
     implementation(Dep.Kotlin.coroutines)
+    implementation(Dep.Coil.coil)
+    implementation(Dep.Coil.base)
 }
 
 android {
@@ -28,6 +30,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
