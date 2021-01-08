@@ -11,8 +11,8 @@ object Dep {
     }
 
     object Kotlin {
-        const val androidCoroutinesDispatcher = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+        const val androidCoroutinesDispatcher = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1-native-mt"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC"
     }
 
