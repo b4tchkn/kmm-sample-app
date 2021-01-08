@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="menu_search">検索</string>
+    <string name="item_main_actress_no_bust">バスト：データなし</string>
+    <string name="item_main_actress_no_cup">カップ：データなし</string>
+    <string name="item_main_actress_no_waist">ウエスト：データなし</string>
+    <string name="item_main_actress_no_hip">ヒップ：データなし</string>
+    <string name="item_main_actress_no_birthday">誕生日：データなし</string>
+
+    <string name="item_main_actress_bust">バスト：%1s</string>
+    <string name="item_main_actress_cup">カップ：%1s</string>
+    <string name="item_main_actress_waist">ウエスト：%1s</string>
+    <string name="item_main_actress_hip">ヒップ：%1s</string>
+    <string name="item_main_actress_birthday">誕生日：%1s</string>
 </resources>

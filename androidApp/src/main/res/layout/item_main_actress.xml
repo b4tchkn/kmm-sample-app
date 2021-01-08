@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="132dp"
     android:layout_marginHorizontal="8dp"
     android:layout_marginVertical="8dp"
     android:background="@color/cardview_shadow_start_color"
@@ -20,14 +20,65 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="上原亜衣" />
 
+    <TextView
+        android:id="@+id/item_main_actress_bust"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_main_actress_no_bust"
+        app:layout_constraintEnd_toStartOf="@id/item_main_actress_icon_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_main_actress_name"
+        tools:text="バスト：83" />
+
+    <TextView
+        android:id="@+id/item_main_actress_cup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_main_actress_no_cup"
+        app:layout_constraintEnd_toStartOf="@id/item_main_actress_icon_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_main_actress_bust"
+        tools:text="カップ：E" />
+
+    <TextView
+        android:id="@+id/item_main_actress_waist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_main_actress_no_waist"
+        app:layout_constraintEnd_toStartOf="@id/item_main_actress_icon_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_main_actress_cup"
+        tools:text="ウエスト：57" />
+
+    <TextView
+        android:id="@+id/item_main_actress_hip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_main_actress_no_hip"
+        app:layout_constraintEnd_toStartOf="@id/item_main_actress_icon_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_main_actress_waist"
+        tools:text="ヒップ：82" />
+
+    <TextView
+        android:id="@+id/item_main_actress_birthday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item_main_actress_no_birthday"
+        app:layout_constraintEnd_toStartOf="@id/item_main_actress_icon_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_main_actress_hip"
+        tools:text="誕生日：1992-11-12" />
+
     <ImageView
         android:id="@+id/item_main_actress_icon_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:importantForAccessibility="no"
+        android:src="@drawable/ic_baseline_account_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@drawable/ic_baseline_account_box" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         MainViewModelFactory(testRepository)
     }
     private lateinit var binding: ActivityMainBinding
-    private val actressesRecyclerViewAdapter = ActressesRecyclerViewAdapter(listOf())
+    private val actressesRecyclerViewAdapter = ActressesRecyclerViewAdapter(listOf(), this)
 
     @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
