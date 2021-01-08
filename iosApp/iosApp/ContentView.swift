@@ -6,13 +6,18 @@ func greet() -> String {
 }
 
 struct ContentView: View {
+    @ObservedObject private(set) var viewModel: ContentViewModel
     var body: some View {
-        Text(greet())
+        NavigationView {
+            listView()
+        }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    private func listView() -> AnyView {
+        return AnyView(List(viewModel.actresses, id:\.self) { actress in
+            HStack() {
+                Text(actress.name)
+            }
+        })
     }
 }

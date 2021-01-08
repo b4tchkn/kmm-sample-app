@@ -14,7 +14,7 @@ class TestRepositoryImpl(databaseDriverFactory: DatabaseDriverFactory) : TestRep
     private val localDataSource = LocalDataSource(databaseDriverFactory = databaseDriverFactory)
     private val actressDataSource = ActressDataSourceImpl()
 
-    override suspend fun getAllLaunches(): Flow<List<Launch>> = localDataSource.getAllLaunches()
+    override suspend fun getAllLaunches(): CFlow<List<Launch>> = localDataSource.getAllLaunches()
     override suspend fun searchActress(searchedKeyWord: String): CFlow<SearchActressResponse> {
         return flow {
             emit(actressDataSource.searchActress(searchedKeyWord))
