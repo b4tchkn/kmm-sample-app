@@ -16,19 +16,25 @@ class ContentViewModel: ObservableObject {
     @Published
     var isLoading: Bool = false
     
-    private let testRepository: TestRepository
+    private let injector: Injector
     
-    init(testRepository: TestRepositoryImpl) {
-        self.testRepository = testRepository
+    private let testRepository: TestRepository
+    private let searchActressUseCase: SearchActressUseCase
+    
+    init(injector: Injector) {
+        self.injector = injector
+        self.testRepository = injector.testRepository()
+        self.searchActressUseCase = injector.searchActressUseCase()
         self.searchActress(searchedKeyWord: "上原")
     }
     
     func searchActress(searchedKeyWord: String) {
-        testRepository.searchActress(searchedKeyWord: searchedKeyWord, completionHandler: { response, error in
-            response?.watch { [weak self] result in
-                if let actresses = result?.result.actress {
+        searchActressUseCase.searchActress(searchedKeyWord: searchedKeyWord, completionHandler: { response, error in
+            response?.watch { [weak self] response in
+                if let actresses = response?.result.actress {
                     self?.actresses = actresses
                 }
+                
             }
         })
     }
