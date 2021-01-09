@@ -15,6 +15,7 @@ dependencies {
     implementation(Dep.Kotlin.coroutines)
     implementation(Dep.Coil.coil)
     implementation(Dep.Coil.base)
+    implementation(Dep.Kodein.kodeinDiAndroidX)
 }
 
 android {
@@ -37,6 +38,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        useIR = true
     }
     buildFeatures.viewBinding = true
 }

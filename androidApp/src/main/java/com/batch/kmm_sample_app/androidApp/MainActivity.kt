@@ -8,19 +8,20 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.kmm_sample_app.androidApp.databinding.ActivityMainBinding
-import com.batch.kmm_sample_app.shared.data.local.DatabaseDriverFactory
-import com.batch.kmm_sample_app.shared.data.remote.ActressDataSourceImpl
-import com.batch.kmm_sample_app.shared.data.repository.ActressRepositoryImpl
-import com.batch.kmm_sample_app.shared.data.repository.TestRepositoryImpl
+import com.batch.kmm_sample_app.shared.data.repository.TestRepository
 import com.batch.kmm_sample_app.shared.data.usecase.SearchActressUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.android.di
+import org.kodein.di.instance
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity(R.layout.activity_main), DIAware {
+    override val di: DI by di()
 
-    private val testRepository = TestRepositoryImpl(DatabaseDriverFactory(this))
-    private val searchActressUseCase =
-        SearchActressUseCase(ActressRepositoryImpl(ActressDataSourceImpl()))
+    private val testRepository: TestRepository by instance()
+    private val searchActressUseCase: SearchActressUseCase by instance()
 
     @ExperimentalCoroutinesApi
     private val viewModel: MainViewModel by viewModels {

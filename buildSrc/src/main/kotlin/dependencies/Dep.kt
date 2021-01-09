@@ -35,6 +35,11 @@ object Dep {
         const val base = "io.coil-kt:coil-base:1.1.0"
     }
 
+    object Kodein {
+        const val kodeinDi = "org.kodein.di:kodein-di:7.1.0"
+        const val kodeinDiAndroidX = "org.kodein.di:kodein-di-framework-android-x:7.1.0"
+    }
+
     object Test {
         const val junit = "junit:junit:4.13.1"
 

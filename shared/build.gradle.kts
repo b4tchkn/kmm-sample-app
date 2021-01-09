@@ -26,6 +26,7 @@ kotlin {
                 implementation(Dep.Ktor.serialization)
                 implementation(Dep.SqlDelight.runtime)
                 implementation(Dep.SqlDelight.coroutinesExtensions)
+                implementation(Dep.Kodein.kodeinDi)
             }
         }
         val commonTest by getting {
@@ -79,6 +80,17 @@ android {
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(30)
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
     }
 }
 
