@@ -6,6 +6,8 @@ import io.ktor.client.*
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
 
 class ActressDataSourceImpl : ActressDataSource {
@@ -20,12 +22,16 @@ class ActressDataSourceImpl : ActressDataSource {
     }
 
     @Throws(Exception::class)
-    override suspend fun searchActress(searchedKeyWord: String): SearchActressResponse {
-        return dmmApiClient.get {
-            url(Constants.DMM_ENDPOINT)
-            parameter("api_id", Constants.API_ID)
-            parameter("affiliate_id", Constants.AFFILIATE_ID)
-            parameter("keyword", searchedKeyWord)
+    override suspend fun searchActress(searchedKeyWord: String): Flow<SearchActressResponse> {
+        return flow {
+            emit(
+                dmmApiClient.get {
+                    url(Constants.DMM_ENDPOINT)
+                    parameter("api_id", Constants.API_ID)
+                    parameter("affiliate_id", Constants.AFFILIATE_ID)
+                    parameter("keyword", searchedKeyWord)
+                }
+            )
         }
     }
 }

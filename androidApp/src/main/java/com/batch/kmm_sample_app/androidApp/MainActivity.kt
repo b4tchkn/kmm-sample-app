@@ -9,17 +9,22 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.kmm_sample_app.androidApp.databinding.ActivityMainBinding
 import com.batch.kmm_sample_app.shared.data.local.DatabaseDriverFactory
+import com.batch.kmm_sample_app.shared.data.remote.ActressDataSourceImpl
+import com.batch.kmm_sample_app.shared.data.repository.ActressRepositoryImpl
 import com.batch.kmm_sample_app.shared.data.repository.TestRepositoryImpl
+import com.batch.kmm_sample_app.shared.data.usecase.SearchActressUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val testRepository = TestRepositoryImpl(DatabaseDriverFactory(this))
+    private val searchActressUseCase =
+        SearchActressUseCase(ActressRepositoryImpl(ActressDataSourceImpl()))
 
     @ExperimentalCoroutinesApi
     private val viewModel: MainViewModel by viewModels {
-        MainViewModelFactory(testRepository)
+        MainViewModelFactory(testRepository, searchActressUseCase)
     }
     private lateinit var binding: ActivityMainBinding
     private val actressesRecyclerViewAdapter = ActressesRecyclerViewAdapter(listOf(), this)
