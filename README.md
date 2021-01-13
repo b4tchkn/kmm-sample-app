@@ -23,6 +23,9 @@ This app uses some modern open-source libraries and source codes.
 ## Network API
 This app uses [DMM Web API Service](https://affiliate.dmm.com/api/).
 
+## For iOS App Developer
+Open kmm_sample_app/iosApp/iosApp.xcodeproj in Xcode to run this app.
+
 ## References
 - https://github.com/JetBrains/kotlinconf-app
 - https://github.com/kobasato34/KMMBrainfuck
