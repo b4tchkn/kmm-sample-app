@@ -29,6 +29,7 @@ class MainViewModel(
     val actresses: StateFlow<List<Actress>>
         get() = _actresses
 
+    // for sample
     fun getAllLaunches() {
         viewModelScope.launch {
             _isLoading.emit(true)

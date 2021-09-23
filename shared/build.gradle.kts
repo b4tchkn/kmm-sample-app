@@ -21,7 +21,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(Dep.Kotlin.coroutines)
-                implementation(Dep.Kotlin.serialization)
+                implementation(Dep.Kotlin.serializationCore)
+                implementation(Dep.Kotlin.serializationJson)
                 implementation(Dep.Ktor.client)
                 implementation(Dep.Ktor.serialization)
                 implementation(Dep.SqlDelight.runtime)
@@ -75,11 +76,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        minSdk = 24
+        targetSdk = 30
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
