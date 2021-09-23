@@ -14,11 +14,12 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import org.kodein.di.DI
 import org.kodein.di.DIAware
+import org.kodein.di.android.closestDI
 import org.kodein.di.android.di
 import org.kodein.di.instance
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), DIAware {
-    override val di: DI by di()
+    override val di: DI by closestDI()
 
     private val testRepository: TestRepository by instance()
     private val searchActressUseCase: SearchActressUseCase by instance()

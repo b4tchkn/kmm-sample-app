@@ -12,10 +12,14 @@ dependencies {
     implementation(Dep.AndroidX.constraint)
     implementation(Dep.AndroidX.viewModelKtx)
     implementation(Dep.AndroidX.activityKtx)
+    implementation(Dep.AndroidX.Compose.ui)
+    implementation(Dep.AndroidX.Compose.material)
+    implementation(Dep.AndroidX.Compose.uiTooling)
     implementation(Dep.Kotlin.coroutines)
     implementation(Dep.Coil.coil)
     implementation(Dep.Coil.base)
     implementation(Dep.Kodein.kodeinDiAndroidX)
+    implementation(kotlin("script-runtime"))
 }
 
 android {
@@ -40,5 +44,9 @@ android {
         jvmTarget = "1.8"
         useIR = true
     }
-    buildFeatures.viewBinding = true
+
+    buildFeatures {
+        viewBinding = true
+        compose = true
+    }
 }

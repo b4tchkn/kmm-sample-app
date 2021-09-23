@@ -7,10 +7,17 @@ object Dep {
         const val design = "com.google.android.material:material:1.4.0"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
         const val activityKtx = "androidx.activity:activity-ktx:1.1.0"
+
+        object Compose {
+            const val ui = "androidx.compose.ui:ui:1.0.2"
+            const val material = "androidx.compose.material:material:1.0.2"
+            const val uiTooling = "androidx.compose.ui:ui-tooling:1.0.2"
+        }
     }
 
     object Kotlin {
-        const val androidCoroutinesDispatcher = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+        const val androidCoroutinesDispatcher =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt"
         const val serializationCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.2.2"
         const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
